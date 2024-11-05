@@ -30,21 +30,21 @@ func LoadConfig() *Config {
 	}
 
 	AppConfig = &Config{
-		Port:      getEnvOrFatal("PORT"),
-		SecretKey: getEnvOrFatal("SECRET_KEY"),
+		Port:      GetEnvOrFatal("PORT"),
+		SecretKey: GetEnvOrFatal("SECRET_KEY"),
 
-		DBHost: getEnvOrFatal("DB_HOST"),
-		DBUser: getEnvOrFatal("DB_USER"),
-		DBPass: getEnvOrFatal("DB_PASS"),
-		DBPort: getEnvOrFatal("DB_PORT"),
-		DBName: getEnvOrFatal("DB_NAME"),
+		DBHost: GetEnvOrFatal("DB_HOST"),
+		DBUser: GetEnvOrFatal("DB_USER"),
+		DBPass: GetEnvOrFatal("DB_PASS"),
+		DBPort: GetEnvOrFatal("DB_PORT"),
+		DBName: GetEnvOrFatal("DB_NAME"),
 	}
 
 	return AppConfig
 }
 
 // getEnvOrFatal gets an environment variable or exits with a message if it’s missing
-func getEnvOrFatal(key string) string {
+func GetEnvOrFatal(key string) string {
 	value := os.Getenv(key)
 	if value == "" {
 		fmt.Printf("Environment variable %s is required but not set\n", key)
