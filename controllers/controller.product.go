@@ -19,7 +19,6 @@ func NewProductController(service *services.ProductService) *ProductController {
 	return &ProductController{service: service}
 }
 
-// TODO
 // CreateProduct Handler
 func (c *ProductController) CreateProduct(ctx *fiber.Ctx) error {
 	// Get validated DTO from the Local storage

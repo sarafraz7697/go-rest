@@ -9,17 +9,19 @@ import (
 )
 
 func main() {
+	// Load configuration
 	config.LoadConfig()
 
-	// Initialize MongoDB
+	// Connect to MongoDB
 	config.ConnectDB()
 
+	// Create a new Fiber application
 	app := fiber.New()
 
+	// Setup routes
 	routes.SetupRoutes(app)
 
-	// Start server
+	// Start the server
 	port := config.GetEnvOrFatal("PORT")
-
 	app.Listen(fmt.Sprintf(":%s", port))
 }
