@@ -1,38 +1,42 @@
-# E-Commerce API
+# 🛒 E-Commerce API
 
-This is a clean and scalable REST API built with Go (Golang) and Fiber framework. It follows best practices, including layered architecture, JWT authentication, role-based access control, and MongoDB as the database.
+A clean and scalable REST API built with **Go (Golang)** and the **Fiber** framework. It follows best practices, including **layered architecture**, **JWT authentication**, **role-based access control (RBAC)**, and **MongoDB** as the database.
 
-## Features
+---
 
-- **User Authentication**: Register, login, and edit profile
-- **Role-Based Access Control (RBAC)**: Protect routes based on user roles
-- **CRUD Operations**: Products management (Create, Read, Update, Delete)
-- **Validation Middleware**: DTO validation with `go-playground/validator`
-- **JWT Authentication**: Secure authentication using JWT tokens
-- **MongoDB Integration**: Store data securely using MongoDB
-- **Dependency Injection**: Organized structure for services, repositories, and controllers
+## ✨ Features
 
-## Installation
+- **User Authentication** – Register, login, and update profiles
+- **Role-Based Access Control (RBAC)** – Restrict routes based on user roles
+- **Product Management** – Full **CRUD** (Create, Read, Update, Delete) operations
+- **Validation Middleware** – DTO validation with `go-playground/validator`
+- **JWT Authentication** – Secure authentication using JWT tokens
+- **MongoDB Integration** – Store data securely in MongoDB
+- **Dependency Injection** – Organized structure for services, repositories, and controllers
+
+---
+
+## 🚀 Installation
 
 ### Prerequisites
 
-- Go 1.18+
-- MongoDB
+- **Go** `1.18+`
+- **MongoDB** installed and running
 
-### Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```sh
 git clone https://github.com/your-repo/ecommerce-api.git
 cd ecommerce-api
 ```
 
-### Install Dependencies
+### 2️⃣ Install Dependencies
 
 ```sh
 go mod tidy
 ```
 
-### Environment Variables
+### 3️⃣ Configure Environment Variables
 
 Create a `.env` file in the project root with the following content:
 
@@ -47,31 +51,35 @@ DB_PORT=27017
 DB_NAME=ecommerce
 ```
 
-### Run the Application
+### 4️⃣ Run the Application
 
 ```sh
 go run main.go
 ```
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
-├── config/         # Database connection and environment config
+├── config/         # Database connection & environment config
 ├── controllers/    # Route handlers (business logic)
-├── middlewares/    # Authentication, validation, and role-based access
+├── middlewares/    # Authentication, validation, and RBAC
 ├── models/         # Database models (MongoDB schemas)
 ├── repository/     # Database queries and interactions
 ├── routes/         # API route definitions
 ├── services/       # Business logic layer
 ├── utils/          # Utility functions (JWT, validation, etc.)
-├── dtos/           # Request data transfer objects
+├── dtos/           # Data transfer objects for requests
 ├── main.go         # Application entry point
 └── go.mod          # Dependencies
 ```
 
-## API Endpoints
+---
 
-### Authentication Routes
+## 📌 API Endpoints
+
+### 🔑 Authentication Routes
 
 | Method | Endpoint         | Description         | Auth Required |
 | ------ | ---------------- | ------------------- | ------------- |
@@ -79,7 +87,7 @@ go run main.go
 | POST   | `/auth/login`    | Authenticate user   | ❌ No         |
 | PUT    | `/auth/profile`  | Update user profile | ✅ Yes        |
 
-### Product Routes
+### 🛍 Product Routes
 
 | Method | Endpoint       | Description            | Auth Required | Role  |
 | ------ | -------------- | ---------------------- | ------------- | ----- |
@@ -89,21 +97,30 @@ go run main.go
 | PUT    | `/product/:id` | Update product details | ✅ Yes        | Admin |
 | DELETE | `/product/:id` | Delete a product       | ✅ Yes        | Admin |
 
-## Technologies Used
+---
 
-- **Go Fiber** - Web framework
-- **MongoDB** - NoSQL database
-- **JWT** - JSON Web Token for authentication
-- **Validator** - DTO validation middleware
+## 🛠 Technologies Used
 
-## Running with Docker
+- **[Go Fiber](https://gofiber.io/)** – Web framework
+- **[MongoDB](https://www.mongodb.com/)** – NoSQL database
+- **[JWT](https://jwt.io/)** – JSON Web Token authentication
+- **[go-playground/validator](https://github.com/go-playground/validator)** – DTO validation middleware
 
-You can use Docker to set up MongoDB quickly:
+---
+
+## 🐳 Running with Docker
+
+Set up MongoDB using Docker:
 
 ```sh
-docker run --name mongodb -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=12345 mongo
+docker run --name mongodb -d -p 27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=12345 \
+  mongo
 ```
 
-## License
+---
 
-This project is licensed under the MIT License.
+## 📜 License
+
+This project is licensed under the **MIT License**.
